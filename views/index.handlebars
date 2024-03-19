@@ -1,0 +1,51 @@
+<div class="row">
+    <!-- Card para exibir o formulário de cadastro -->
+    <div class="card mb-3 col-12">
+        <div class="card-body">
+            <!-- Título do card -->
+            <h5 class="card-title">Cadastrar - Agendamento de Potenciais Clientes</h5>
+            <!-- Descrição do card -->
+            <p class="card-text">Sistema utilizado para agendamento de serviços.</p>
+            <!-- Formulário para inserir novos agendamentos -->
+            <form method="post" action="/cadastrar" id="form" name="form">
+                <!-- Campo para inserir o nome -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Nome:</label>
+                    <input type="text" class="form-control" name="nome" id="nome">
+                </div>
+                <!-- Campo para inserir o telefone -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Telefone:</label>
+                    <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="(xx)xxxxx-xxxx">
+                </div>
+                <!-- Campo para selecionar a origem do contato -->
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Origem:</label>
+                    <select class="form-control" required name="origem" id="origem">
+                        <!-- Opções de origem -->
+                        <option>Celular</option>
+                        <option>Fixo</option>
+                        <option>Whatsapp</option>
+                        <option>Facebook</option>
+                        <option>Instagram</option>
+                        <option>Google Meu Negocio</option>
+                    </select>
+                </div>
+                <!-- Campo para inserir a data do contato -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Data do Contato:</label>
+                    <input type="date" class="form-control" name="data_contato" id="data_contato">
+                </div>
+                <!-- Campo para inserir observações -->
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Observação</label>
+                    <textarea class="form-control" name="observacao" id="observacao" rows="3"></textarea>
+                </div>
+                <!-- Espaçamento -->
+                <div>&nbsp;</div>
+                <!-- Botão para enviar o formulário de cadastro -->
+                <button type="submit" id="btnInserir" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>

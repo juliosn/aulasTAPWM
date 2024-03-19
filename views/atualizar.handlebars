@@ -1,0 +1,48 @@
+<div class="row">
+    <!-- Card para exibir o formulário de atualização de agendamento -->
+    <div class="card mb-3 col-12">
+        <div class="card-body">
+            <!-- Título do card -->
+            <h5 class="card-title">Atualizar - Agendamento de Potenciais Clientes</h5>
+            <!-- Formulário para enviar os dados de atualização -->
+            <form action="/atualizar" method="POST">
+                <!-- Campo oculto para enviar o ID do agendamento -->
+                <input type="hidden" name="id" value="{{agendamento.id}}">
+                <!-- Campo para o nome do cliente -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Nome:</label>
+                    <input type="text" class="form-control" name="nome" id="nome" value="{{agendamento.nome}}">
+                </div>
+                <!-- Campo para o telefone do cliente -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Telefone:</label>
+                    <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="(xx)xxxxx-xxxx" value="{{agendamento.telefone}}">
+                </div>
+                <!-- Campo para selecionar a origem do contato -->
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Origem:</label>
+                    <select class="form-control" required name="origem" id="origem">
+                        <!-- Loop para gerar as opções de origem -->
+                        {{#each origens}}
+                            <option value="{{this}}" {{#ifCond this ../agendamento.origem}}selected{{/ifCond}}>{{this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <!-- Campo para selecionar a data do contato -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Data do Contato:</label>
+                    <input type="date" class="form-control" name="data_contato" id="data_contato" value="{{agendamento.data_contato}}">
+                </div>
+                <!-- Campo para adicionar observações -->
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Observação</label>
+                    <textarea class="form-control" name="observacao" id="observacao" rows="3">{{agendamento.observacao}}</textarea>
+                </div>
+                <!-- Espaçamento -->
+                <div>&nbsp;</div>
+                <!-- Botão para enviar o formulário de atualização -->
+                <button type="submit" id="btnAtualizar" class="btn btn-primary">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

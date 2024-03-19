@@ -1,0 +1,61 @@
+<div class="row">
+    <!-- Card para exibir a lista de agendamentos -->
+    <div class="card mb-3 col-12">
+        <div class="card-body">
+            <!-- Título do card -->
+            <h5 class="card-title">Consultar - Agendamento de Potenciais Clientes</h5>
+            <!-- Descrição da lista -->
+            <p class="card-text">Lista dos agendamentos cadastrados:</p>
+            <!-- Tabela para exibir os agendamentos -->
+            <table class="table">
+                <!-- Cabeçalho da tabela -->
+                <thead style="background-color: #0d6efd">
+                    <tr class="text-light fs-6"> 
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Origem</th>
+                        <th>Data do Contato</th>
+                        <th>Observação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop para exibir cada agendamento -->
+                    {{#each agendamentos}}
+                        <tr class="fs-6">
+                            <!-- Coluna com o nome do agendamento -->
+                            <td>{{this.nome}}</td>
+                            <!-- Coluna com o telefone do agendamento -->
+                            <td>{{this.telefone}}</td>
+                            <!-- Coluna com a origem do agendamento -->
+                            <td>{{this.origem}}</td>
+                            <!-- Coluna com a data de contato do agendamento -->
+                            <td>{{this.data_contato}}</td>
+                            <!-- Coluna com a observação do agendamento -->
+                            <td>{{this.observacao}}</td>
+                            <!-- Coluna com botões de ação -->
+                            <td class="d-flex">
+                                <!-- Formulário para redirecionar para a página de atualização -->
+                                <form action="/atualizar" method="GET">
+                                    <!-- Campo oculto com o ID do agendamento -->
+                                    {{#if this.id}}
+                                    <input type="hidden" name="id" value="{{this.id}}">
+                                    {{/if}}
+                                    <!-- Botão para atualizar o agendamento -->
+                                    <button type="submit" class="btn btn-primary" style="margin-right: 5px;">Atualizar</button>
+                                </form>
+                                <!-- Formulário para excluir o agendamento -->
+                                <form action="/excluir" method="POST">
+                                    <!-- Campo oculto com o ID do agendamento -->
+                                    <input type="hidden" name="id" value="{{this.id}}">
+                                    <!-- Botão para excluir o agendamento -->
+                                    <button type="submit" class="btn btn-danger">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
