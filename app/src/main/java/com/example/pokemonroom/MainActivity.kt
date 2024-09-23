@@ -3,24 +3,20 @@ package com.example.pokemonroom
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import com.example.pokemonroom.data.AppContainer
-import com.example.pokemon.ui.PokemonViewModelFactory
-import com.example.pokemonroom.ui.PokemonScreen
-import com.example.pokemonroom.ui.PokemonViewModel
+import com.example.pokemonroom.ui.navigation.PokemonNavGraph
+import com.example.pokemonroom.ui.theme.PokemonRoomTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val appContainer = AppContainer(applicationContext)
-        val pokemonRepository = appContainer.pokemonRepository
-
         setContent {
-            val viewModel: PokemonViewModel = viewModel(
-                factory = PokemonViewModelFactory(pokemonRepository)
-            )
-            PokemonScreen(viewModel)
+            PokemonRoomTheme{
+                val appContainer = AppContainer(applicationContext)
+                val pokemonRepository = appContainer.pokemonRepository
+                val navController = rememberNavController()
+                PokemonNavGraph(navController = navController, pokemonRepository = pokemonRepository)}
         }
     }
 }
