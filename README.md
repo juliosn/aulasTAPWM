@@ -25,12 +25,4 @@ Antes de utilizar verifique se você possui as condições a seguir:
   - Habilitar o Cloud Firestore nesse projeto
   
 ## ☕ Instalando o Projeto...
-
-Para utilizar o projeto, siga as seguintes etapas:
-
-- Baixe o projeto https://github.com/juliosn/aulasTAPWM/tree/16-CRUD_Firestore
-- Abra-o no Android Studio
-- Criar um "app" mobile no console do firebase e obter o google-services.json
-- No Cloud Firestore, crie um banco de dados NO MODO DE TESTE
-  - Criar uma coleção chamada "pessoas"
-- Após ter gerado google-services.json do seu projeto no firebase, insira-o na pasta app e execute o projeto
+(vídeo tutorial em desenvolvimento)
